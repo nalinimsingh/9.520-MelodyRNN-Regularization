@@ -10,7 +10,7 @@ cd ${MAGENTAPATH}
 
 bazel run //magenta/models/melody_rnn:melody_rnn_train -- \
   --config='basic_rnn' \
-  --run_dir=/tmp/melody_rnn/logdir/$0 \
+  --run_dir=/tmp/melody_rnn/logdir/$1 \
   --sequence_example_file=${EXAMPLES_TFRECORD}/training_melodies.tfrecord \
   --hparams="batch_size=64,rnn_layer_sizes=[64,64]" \
   --num_training_steps=20000
