@@ -7,8 +7,8 @@ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord
 touch ${SEQUENCES_TFRECORD}
 
 # TFRecord file that will contain SequenceExamples
-EXAMPLES_TFRECORD=/tmp/melody_rnn/vanilla_sequence_examples
-touch ${EXAMPLES_TFRECORD}
+EXAMPLES_TFRECORD=/tmp/melody_rnn/sequence_examples
+mkdir ${EXAMPLES_TFRECORD}
 
 cd ${MAGENTAPATH}
 
