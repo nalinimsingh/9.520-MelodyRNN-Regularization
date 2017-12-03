@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+CURR_DIRECTORY=${PWD}
+
+# TFRecord file that will contain NoteSequence protocol buffers.
+SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord
+touch ${SEQUENCES_TFRECORD}
+
+# TFRecord file that will contain SequenceExamples
+EXAMPLES_TFRECORD=/tmp/melody_rnn/vanilla_sequence_examples
+touch ${EXAMPLES_TFRECORD}
+
+cd ${MAGENTAPATH}
+
+bazel run //magenta/models/melody_rnn:melody_rnn_create_dataset -- \
+  --config='basic_rnn' \
+  --input=${SEQUENCES_TFRECORD} \
+  --output_dir=${EXAMPLES_TFRECORD} \
+  --eval_ratio=0.10 \
+  --log='DEBUG'
+ 
+cd ${CURR_DIRECTORY}
