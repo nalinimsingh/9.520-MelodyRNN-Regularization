@@ -3,11 +3,11 @@
 CURR_DIRECTORY=${PWD}
 
 # TFRecord file that will contain NoteSequence protocol buffers.
-SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord
+SEQUENCES_TFRECORD=results/notesequences.tfrecord
 touch ${SEQUENCES_TFRECORD}
 
 # TFRecord file that will contain SequenceExamples
-EXAMPLES_TFRECORD=/tmp/melody_rnn/sequence_examples
+EXAMPLES_TFRECORD=results/melody_rnn/sequence_examples
 mkdir ${EXAMPLES_TFRECORD}
 
 cd ${MAGENTAPATH}
