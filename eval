@@ -7,7 +7,7 @@ EXAMPLES_TFRECORD=${CURR_DIRECTORY}/results/melody_rnn/sequence_examples
 
 cd ${MAGENTAPATH}
 
-bazel run //magenta/models/melody_rnn:melody_rnn_train -- \
+bazel-bin/magenta/models/melody_rnn/melody_rnn_train \
   --config='basic_rnn' \
   --run_dir=${CURR_DIRECTORY}/results/melody_rnn/logdir/$1 \
   --sequence_example_file=${EXAMPLES_TFRECORD}/eval_melodies.tfrecord \
