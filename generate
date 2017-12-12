@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+CURR_DIRECTORY=${PWD}
+
+# TFRecord file that contains SequenceExamples
+EXAMPLES_TFRECORD=${CURR_DIRECTORY}/results/melody_rnn/sequence_examples
+
+cd ${MAGENTAPATH}
+
+bazel-bin/magenta/models/melody_rnn/melody_rnn_generate \
+  --config='basic_rnn' \
+  --run_dir=${CURR_DIRECTORY}/results/melody_rnn/logdir/$1 \
+  --output_dir=${CURR_DIRECTORY}/results/melody_rnn/generated/$1 \
+  --num_outputs=10 \
+  --num_steps=128 \
+  --hparams="batch_size=32,rnn_layer_sizes=[64,64]" \
+  --primer_melody="[60]"
+
+cd ${CURR_DIRECTORY}
